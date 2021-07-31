@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Stream;
 
-@RequestMapping("api/v1/user")
+@RequestMapping("/user")
 @RestController
 public class UserController {
 
