@@ -15,6 +15,8 @@ public class Post {
     @NotBlank
     private final String post_content;
     @NotBlank
+    private final String photo;
+    @NotBlank
     private final Integer heart_count;
     @NotBlank
     private final Integer comment_count;
@@ -35,6 +37,10 @@ public class Post {
         return post_content;
     }
 
+    public String getPhoto() {
+        return photo;
+    }
+
     public Integer getHeart_count() {
         return heart_count;
     }
@@ -47,12 +53,14 @@ public class Post {
                 @JsonProperty("name") @NotBlank String name,
                 @JsonProperty("date") @NotBlank String date,
                 @JsonProperty("content") @NotBlank String post_content,
+                @JsonProperty("photo") @NotBlank String photo,
                 @JsonProperty("heart") @NotBlank Integer heart_count,
                 @JsonProperty("comment") @NotBlank Integer comment_count) {
         this.id = id;
         this.name = name;
         this.date = date;
         this.post_content = post_content;
+        this.photo = photo;
         this.heart_count = heart_count;
         this.comment_count = comment_count;
     }

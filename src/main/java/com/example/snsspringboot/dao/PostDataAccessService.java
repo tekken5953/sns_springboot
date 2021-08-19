@@ -16,7 +16,7 @@ public class PostDataAccessService implements PostDao {
 
     @Override
     public int insertPost(UUID id, Post post) {
-        DB.add(new Post(id, post.getName(), post.getDate(), post.getPost_content(), post.getHeart_count(), post.getComment_count()));
+        DB.add(new Post(id, post.getName(), post.getDate(), post.getPost_content(), post.getPhoto(), post.getHeart_count(), post.getComment_count()));
         return 1;
     }
 
@@ -61,7 +61,7 @@ public class PostDataAccessService implements PostDao {
                     int indexOfPostToUpdate = DB.indexOf(Post);
                     if (indexOfPostToUpdate >= 0) {
                         DB.set(indexOfPostToUpdate,
-                                new Post(id, update.getName(), update.getDate(), update.getPost_content(), update.getHeart_count(), update.getComment_count()));
+                                new Post(id, update.getName(), update.getDate(), update.getPost_content(), update.getPhoto(), update.getHeart_count(), update.getComment_count()));
                         return 1;
                     }
                     return 0;
