@@ -47,4 +47,6 @@ public class PostService {
         return postDao.updatePostId(id, newPost);
     }
 
+    public List<Post> deleteAllPost() { return postDao.deleteAllPost();}
+
 }

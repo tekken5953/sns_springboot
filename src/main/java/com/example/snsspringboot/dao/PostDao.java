@@ -26,4 +26,6 @@ public interface PostDao {
     int deletePostId(UUID id);
 
     int updatePostId(UUID id, Post post);
+
+    List<Post> deleteAllPost();
 }

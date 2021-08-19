@@ -56,4 +56,6 @@ public class PostController {
         postService.updatePost(id, postToUpdate);
     }
 
+    @DeleteMapping
+    public void deleteAllPost() {postService.deleteAllPost();}
 }

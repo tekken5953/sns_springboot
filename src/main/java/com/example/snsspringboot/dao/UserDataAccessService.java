@@ -1,6 +1,7 @@
-package com.example.snsspringboot.model;
+package com.example.snsspringboot.dao;
 
 import com.example.snsspringboot.dao.UserDao;
+import com.example.snsspringboot.model.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

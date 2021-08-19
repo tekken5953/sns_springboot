@@ -4,10 +4,7 @@ import com.example.snsspringboot.dao.PostDao;
 import com.example.snsspringboot.model.Post;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Stream;
 
 @Repository("postDao")
@@ -67,5 +64,11 @@ public class PostDataAccessService implements PostDao {
                     return 0;
                 })
                 .orElse(0);
+    }
+
+    @Override
+    public List<Post> deleteAllPost() {
+        DB.clear();
+        return null;
     }
 }
