@@ -24,4 +24,6 @@ public interface UserDao {
     int deleteUserId(UUID id);
 
     int updateUserId(UUID id, User User);
+
+    int updateUserProfile(String profile, User user);
 }

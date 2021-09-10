@@ -46,10 +46,12 @@ public class UserService {
         return UserDao.deleteUserId(id);
     }
 
-    public int updateUser(UUID id, User newUser) {
+    public int updateUserByID(UUID id, User newUser) {
         return UserDao.updateUserId(id, newUser);
     }
 
-
+    public int updateUserByProfile(String profile, User newUser) {
+        return UserDao.updateUserProfile(profile, newUser);
+    }
 
 }

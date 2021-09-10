@@ -50,7 +50,12 @@ public class UserController {
 
     @PutMapping(path = "{id}")
     public void updateUserById(@PathVariable("id") UUID id,@Valid @NonNull @RequestBody User userToUpdate) {
-        userService.updateUser(id, userToUpdate);
+        userService.updateUserByID(id, userToUpdate);
+    }
+
+    @PutMapping(path = "{profile}")
+    public void updateUserByProfile(@PathVariable("profile") String profile,@Valid @NonNull @RequestBody User userToUpdate) {
+        userService.updateUserByProfile(profile, userToUpdate);
     }
 
 }

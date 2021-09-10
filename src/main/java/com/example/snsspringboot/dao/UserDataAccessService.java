@@ -1,6 +1,5 @@
 package com.example.snsspringboot.dao;
 
-import com.example.snsspringboot.dao.UserDao;
 import com.example.snsspringboot.model.User;
 import org.springframework.stereotype.Repository;
 
@@ -16,7 +15,7 @@ public class UserDataAccessService implements UserDao {
 
     @Override
     public int insertUser(UUID id, User User) {
-        DB.add(new User(id, User.getName(), User.getPhone(), User.getPwd(), User.getRepeat_pwd()));
+        DB.add(new User(id, User.getName(), User.getPhone(), User.getPwd(), User.getRepeat_pwd(), User.getProfile()));
         return 1;
     }
 
@@ -54,11 +53,17 @@ public class UserDataAccessService implements UserDao {
                 .map(User -> {
                     int indexOfUserToUpdate = DB.indexOf(User);
                     if (indexOfUserToUpdate >= 0) {
-                        DB.set(indexOfUserToUpdate, new User(id, update.getName(), update.getPhone(), update.getPwd(), update.getRepeat_pwd()));
+                        DB.set(indexOfUserToUpdate, new User(id, update.getName(), update.getPhone(), update.getPwd(), update.getRepeat_pwd(), update.getProfile()));
                         return 1;
                     }
                     return 0;
                 })
                 .orElse(0);
+    }
+
+    @Override
+    public int updateUserProfile(String profile, User user) {
+        //TODO
+        return 0;
     }
 }
