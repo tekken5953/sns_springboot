@@ -49,13 +49,7 @@ public class UserController {
     }
 
     @PutMapping(path = "/name/{name}")
-    public void updateUserByName(@PathVariable("name") String name,@Valid @NonNull @RequestBody User userToUpdate) {
-        userService.updateUserByName(name, userToUpdate);
+    public void updateProfileByName(@PathVariable("name") String name, @Valid @NonNull @RequestBody User userToUpdate) {
+        userService.updateProfileByName(name, userToUpdate);
     }
-
-    @PutMapping(path = "{profile}")
-    public void updateUserByProfile(@PathVariable("profile") String profile,@Valid @NonNull @RequestBody User userToUpdate) {
-        userService.updateUserByProfile(profile, userToUpdate);
-    }
-
 }
