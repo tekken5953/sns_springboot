@@ -46,8 +46,8 @@ public class UserService {
         return UserDao.deleteUserId(id);
     }
 
-    public int updateUserByID(UUID id, User newUser) {
-        return UserDao.updateUserId(id, newUser);
+    public int updateUserByName(String name, User newUser) {
+        return UserDao.updateUserByName(name, newUser);
     }
 
     public int updateUserByProfile(String profile, User newUser) {

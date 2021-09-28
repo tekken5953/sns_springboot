@@ -48,9 +48,9 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    @PutMapping(path = "{id}")
-    public void updateUserById(@PathVariable("id") UUID id,@Valid @NonNull @RequestBody User userToUpdate) {
-        userService.updateUserByID(id, userToUpdate);
+    @PutMapping(path = "/name/{name}")
+    public void updateUserByName(@PathVariable("name") String name,@Valid @NonNull @RequestBody User userToUpdate) {
+        userService.updateUserByName(name, userToUpdate);
     }
 
     @PutMapping(path = "{profile}")

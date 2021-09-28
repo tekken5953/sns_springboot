@@ -58,4 +58,5 @@ public class PostController {
 
     @DeleteMapping
     public void deleteAllPost() {postService.deleteAllPost();}
+
 }

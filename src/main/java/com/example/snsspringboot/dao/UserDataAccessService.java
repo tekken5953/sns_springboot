@@ -47,18 +47,17 @@ public class UserDataAccessService implements UserDao {
         return 1;
     }
 
-    @Override
-    public int updateUserId(UUID id, User update) {
-        return selectUserById(id)
+    public int updateUserByName(String name, User update) {
+        return selectUserByName(name)
                 .map(User -> {
                     int indexOfUserToUpdate = DB.indexOf(User);
                     if (indexOfUserToUpdate >= 0) {
-                        DB.set(indexOfUserToUpdate, new User(id, update.getName(), update.getPhone(), update.getPwd(), update.getRepeat_pwd(), update.getProfile()));
+                        DB.set(indexOfUserToUpdate, new User(update.getId(), name, update.getPhone(), update.getPwd(), update.getRepeat_pwd(), update.getProfile()));
                         return 1;
                     }
                     return 0;
                 })
-                .orElse(0);
+                .findFirst().orElse(0);
     }
 
     @Override
