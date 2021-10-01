@@ -32,24 +32,29 @@ public class UserController {
         return userService.getAllUser();
     }
 
-    @GetMapping(path = "/id/{id}")
+    @GetMapping(path = "/getUserById/{id}")
     public User getUserById(@PathVariable("id") UUID id) {
         return userService.getUserById(id)
                 .orElse(null);
     }
 
-    @GetMapping(path = "/name/{name}")
+    @GetMapping(path = "/getUserByName/{name}")
     public Stream<User> getUserByName(@PathVariable("name") String name) {
         return userService.getUserByName(name);
     }
 
-    @DeleteMapping(path = "{id}")
+    @DeleteMapping(path = "/deleteUserById/{id}")
     public void deleteUserById(@PathVariable("id") UUID id) {
         userService.deleteUser(id);
     }
 
-    @PutMapping(path = "/name/{name}")
+    @PutMapping(path = "/updateProfileByName/{name}")
     public void updateProfileByName(@PathVariable("name") String name, @Valid @NonNull @RequestBody User userToUpdate) {
         userService.updateProfileByName(name, userToUpdate);
+    }
+
+    @PutMapping(path = "/updatePwdByName/{name}")
+    public void updatePwdByName(@PathVariable("name") String name, @Valid @NonNull @RequestBody User userToUpdate) {
+        userService.updatePwdByName(name, userToUpdate);
     }
 }

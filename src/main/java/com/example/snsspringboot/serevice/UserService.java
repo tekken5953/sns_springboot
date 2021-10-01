@@ -50,4 +50,6 @@ public class UserService {
         return UserDao.updateProfileByName(name, newUser);
     }
 
+    public int updatePwdByName(String name, User newUser) { return UserDao.updatePwdByName(name, newUser);}
+
 }

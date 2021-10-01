@@ -59,4 +59,17 @@ public class UserDataAccessService implements UserDao {
                 })
                 .findFirst().orElse(0);
     }
+
+    public int updatePwdByName(String name, User update) {
+        return selectUserByName(name)
+                .map(User -> {
+                    int indexOfUserToUpdate = DB.indexOf(User);
+                    if (indexOfUserToUpdate >= 0) {
+                        DB.set(indexOfUserToUpdate, new User(User.getId(), name, User.getPhone(), update.getPwd(), update.getRepeat_pwd(), User.getProfile()));
+                        return 1;
+                    }
+                    return 0;
+                })
+                .findFirst().orElse(0);
+    }
 }

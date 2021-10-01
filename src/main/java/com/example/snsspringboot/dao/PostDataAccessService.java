@@ -58,7 +58,7 @@ public class PostDataAccessService implements PostDao {
                     int indexOfPostToUpdate = DB.indexOf(Post);
                     if (indexOfPostToUpdate >= 0) {
                         DB.set(indexOfPostToUpdate,
-                                new Post(id, update.getName(), update.getDate(), update.getPost_content(), update.getPhoto(), update.getHeart_count(), update.getComment_count()));
+                                new Post(id, Post.getName(), Post.getDate(), Post.getPost_content(), Post.getPhoto(), update.getHeart_count(), Post.getComment_count()));
                         return 1;
                     }
                     return 0;

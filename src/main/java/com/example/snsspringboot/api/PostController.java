@@ -32,29 +32,27 @@ public class PostController {
         return postService.getAllPost();
     }
 
-    @GetMapping(path = "/id/{id}")
+    @GetMapping(path = "/getPostById/{id}")
     public Post getPostById(@PathVariable("id") UUID id) {
         return postService.getPostById(id)
-                .orElse(null);
-    }
+                .orElse(null);}
 
-    @GetMapping(path = "/name/{name}")
+    @GetMapping(path = "/getPostByName/{name}")
     public Stream<Post> getPostByName(@PathVariable("name") String name) {
         return postService.getPostByName(name);
     }
 
-    @GetMapping(path = "/date/{date}")
+    @GetMapping(path = "/getPostByDate/{date}")
     public Stream<Post> getPostByDate(@PathVariable("date") String date) { return postService.getPostByDate(date);}
 
-    @DeleteMapping(path = "{id}")
+    @DeleteMapping(path = "/deletePostById/{id}")
     public void deletePostById(@PathVariable("id") UUID id) {
         postService.deletePost(id);
     }
 
-    @PutMapping(path = "{id}")
+    @PutMapping(path = "/updatePostById/{id}")
     public void updatePostById(@PathVariable("id") UUID id,@Valid @NonNull @RequestBody Post postToUpdate) {
-        postService.updatePost(id, postToUpdate);
-    }
+        postService.updatePost(id, postToUpdate);}
 
     @DeleteMapping
     public void deleteAllPost() {postService.deleteAllPost();}
